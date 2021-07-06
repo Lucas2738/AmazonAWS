@@ -1,3 +1,7 @@
+package alogorithm.shortestpath;
+
+import datastructure.Node;
+
 import java.util.*;
 
 public class Dijkstra {

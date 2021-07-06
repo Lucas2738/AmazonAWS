@@ -1,3 +1,4 @@
+import alogorithm.sorting.MergeSort;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

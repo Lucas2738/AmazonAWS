@@ -1,3 +1,5 @@
+package datastructure;
+
 import lombok.Data;
 
 import java.text.MessageFormat;
@@ -9,7 +11,7 @@ import java.util.Map;
 public class Node {
     private String name;
     private LinkedList<Node> shortestPath =  new LinkedList<>();
-    private int distance = Integer.MAX_VALUE;
+    private int distance = Integer.MAX_VALUE/2;
     private Map<Node, Integer> adjacentNodes =  new HashMap<>();
 
 
@@ -26,6 +28,6 @@ public class Node {
         StringBuilder path = new StringBuilder();
         shortestPath.forEach(s -> path.append(s.getName() + " -> "));
         path.append(name);
-        return MessageFormat.format("Node: {0}, shortestPath: {1}, distance: {2}", name, path , distance);
+        return MessageFormat.format("datastructure.Node: {0}, shortestPath: {1}, distance: {2}", name, path , distance);
     }
 }

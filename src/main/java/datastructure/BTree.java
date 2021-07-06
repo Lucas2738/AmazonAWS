@@ -1,3 +1,5 @@
+package datastructure;
+
 import lombok.Data;
 
 @Data

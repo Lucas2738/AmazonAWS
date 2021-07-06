@@ -1,3 +1,4 @@
+import alogorithm.shortestpath.BellmanFord;
 import alogorithm.shortestpath.Dijkstra;
 import datastructure.Node;
 import org.junit.jupiter.api.Test;
@@ -7,13 +8,13 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DijskstraTest {
+public class BellmanFordTest {
 
     @Test
-    public void test(){
-        Dijkstra dijskstra = new Dijkstra();
-        dijskstra.init(buildGraph());
-        Set<Node> shortestPath = dijskstra.execute();
+    public void test() throws Exception {
+        BellmanFord bellmanFord = new BellmanFord();
+        bellmanFord.init(buildGraph());
+        Set<Node> shortestPath = bellmanFord.execute();
         assertTrue(true);
     }
 
