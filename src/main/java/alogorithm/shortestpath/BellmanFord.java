@@ -5,6 +5,9 @@ import datastructure.Node;
 
 import java.util.*;
 
+/**
+ *  O(|V| * |E|)
+ * */
 public class BellmanFord {
 
     private final Set<Node> nodes = new HashSet<>();

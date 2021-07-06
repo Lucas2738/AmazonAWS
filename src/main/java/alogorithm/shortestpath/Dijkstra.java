@@ -4,6 +4,9 @@ import datastructure.Node;
 
 import java.util.*;
 
+/**
+ *  O((|V| + |E|) log |V|)
+ * */
 public class Dijkstra {
 
     private final Set<Node> visited = new HashSet<>();
