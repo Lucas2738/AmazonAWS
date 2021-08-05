@@ -48,4 +48,9 @@ public class Node {
         }
         childs.add(node);
     }
+
+    @Override
+    public String toString(){
+        return this.name;
+    }
 }

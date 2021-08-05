@@ -4,10 +4,15 @@ import alogorithm.traversal.model.Node;
 import alogorithm.traversal.model.Tree;
 
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class DeepFirstSearch {
 
     public static void main(String[] args){
+
+        DeepFirstSearch DFS = new DeepFirstSearch();
+
         Tree tree = new Tree();
 
         Node root = new Node();
@@ -37,16 +42,32 @@ public class DeepFirstSearch {
                     e.addChild(f);
                     e.addChild(g);
 
-        execute(tree);
+        System.out.println(DFS.executeRecursive(tree));
     }
 
-    public static boolean execute(Tree tree){
+    public Queue execute(Tree tree){
+        Queue result = new LinkedList();
 
+        Stack<Node> stack = new Stack<>();
+        stack.add(tree.getRoot());
+
+        while(stack.size() > 0){
+            Node node = stack.pop();
+            result.add(node);
+            node.getChilds().forEach(c -> {
+                stack.add(c);
+            });
+        }
+        return result;
+    }
+
+    private Queue result = new LinkedList();
+    public Queue executeRecursive(Tree tree){
         traverse(tree.getRoot());
-        return true;
+        return result;
     }
 
-    public static Node traverse(Node node){
+    public Node traverse(Node node){
         if(!node.isVisited()){
             System.out.println(node.getName());
             node.setVisited(true);

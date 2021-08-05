@@ -4,6 +4,7 @@ import alogorithm.traversal.model.Node;
 import alogorithm.traversal.model.Tree;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class BreadthFirstSearch {
 
@@ -37,30 +38,27 @@ public class BreadthFirstSearch {
                     e.addChild(f);
                     e.addChild(g);
 
-        execute(tree);
+        System.out.println(execute(tree));
     }
 
-    public static boolean execute(Tree tree){
 
-        traverse(tree.getRoot());
-        return true;
-    }
 
-    public static Node traverse(Node node){
-        if(!node.isVisited()){
-            System.out.println(node.getName());
-            node.setVisited(true);
-            LinkedList<Node> childs = node.getChilds();
+    public static Queue execute(Tree tree){
+        Queue result = new LinkedList();
 
-            if(childs == null || childs.size() != 0){
-                childs.forEach(n ->{
-                    traverse(n);
-                });
-            }else{
-                return node.getParent();
-            }
+        Queue queue = new LinkedList();
+        queue.add(tree.getRoot());
+
+        while(queue.size() > 0){
+            Node node = (Node) queue.poll();
+            result.add(node);
+            node.getChilds().forEach(c -> {
+                queue.add(c);
+            });
         }
-        return node.getParent();
+
+        return result;
     }
+
 
 }
