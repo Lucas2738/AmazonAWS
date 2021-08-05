@@ -15,23 +15,14 @@ public class TreeTraversalTest {
     @BeforeAll
     public static void beforeClass(){
         tree = new Tree();
-        Node root = new Node();
-        root.setName("ROOT");
-
-        Node a = new Node();
-        a.setName("A");
-        Node b = new Node();
-        b.setName("B");
-        Node c = new Node();
-        c.setName("C");
-        Node d = new Node();
-        d.setName("D");
-        Node e = new Node();
-        e.setName("E");
-        Node f = new Node();
-        f.setName("F");
-        Node g = new Node();
-        g.setName("G");
+        Node root = Node.of("ROOT");
+        Node a = Node.of("A");
+        Node b = Node.of("B");
+        Node c = Node.of("C");
+        Node d = Node.of("D");
+        Node e = Node.of("E");
+        Node f = Node.of("F");
+        Node g = Node.of("G");
 
         tree.setRoot(root);
         root.addChild(a);

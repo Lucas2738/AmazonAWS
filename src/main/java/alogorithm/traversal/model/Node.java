@@ -9,6 +9,9 @@ public class Node {
     private LinkedList<Node> childs =  new LinkedList<>();
     private boolean visited = false;
 
+    public Node(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -52,5 +55,9 @@ public class Node {
     @Override
     public String toString(){
         return this.name;
+    }
+
+    public static Node of(String name){
+        return new Node(name);
     }
 }
