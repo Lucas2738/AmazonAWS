@@ -14,25 +14,7 @@ public class BellmanFord {
     private final Set<Edge> edges = new HashSet<>();
 
 
-    public Set<Node> execute() throws Exception {
-
-        for(int i = 0; i < nodes.size() - 1; i++){
-            for(Edge e : edges){
-                if(e.getA().getDistance() != Integer.MAX_VALUE && e.getA().getDistance() + e.getWeight() < e.getB().getDistance()){
-                    e.getB().setDistance(e.getA().getDistance() + e.getWeight());
-                }
-            }
-        }
-        for(Edge e : edges){
-            if(e.getA().getDistance() != Integer.MAX_VALUE && e.getA().getDistance() + e.getWeight() < e.getB().getDistance()){
-                throw new Exception("Negative cycle!");
-            }
-        }
-
-        return nodes;
-    }
-
-    public void init(Set<Node> nodes){
+    public Set<Node> execute(Set<Node> nodes) throws Exception {
         nodes.forEach(n -> {
             Map<Node, Integer> neigh = n.getAdjacentNodes();
             neigh.forEach((t,s) -> {
@@ -45,6 +27,22 @@ public class BellmanFord {
             });
         });
         this.nodes.addAll(nodes);
+
+        for(int i = 0; i < nodes.size() - 1; i++){
+            for(Edge e : edges){
+                if(e.getA().getDistance() != Integer.MAX_VALUE && e.getA().getDistance() + e.getWeight() < e.getB().getDistance()){
+                    e.getB().setParent(e.getA());
+                    e.getB().setDistance(e.getA().getDistance() + e.getWeight());
+                }
+            }
+        }
+        for(Edge e : edges){
+            if(e.getA().getDistance() != Integer.MAX_VALUE && e.getA().getDistance() + e.getWeight() < e.getB().getDistance()){
+                throw new Exception("Negative cycle!");
+            }
+        }
+
+        return nodes;
     }
 
 }

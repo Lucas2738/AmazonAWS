@@ -12,9 +12,8 @@ public class DijskstraTest {
     @Test
     public void test(){
         Dijkstra dijskstra = new Dijkstra();
-        dijskstra.init(buildGraph());
-        Set<Node> shortestPath = dijskstra.execute();
-        assertTrue(true);
+        Set<Node> shortestPath = dijskstra.execute(buildGraph());
+        assertTrue(shortestPath.stream().filter(n -> n.getName().equals("I")).findFirst().get().getDistance() == 28);
     }
 
     public Set<Node> buildGraph(){

@@ -10,12 +10,12 @@ import java.util.*;
 public class Dijkstra {
 
     private final Set<Node> visited = new HashSet<>();
-    private final Set<Node> unVisited = new HashSet<>();
 
-    public Set<Node> execute(){
+    public Set<Node> execute(Set<Node> unVisited){
+        unVisited.addAll(unVisited);
 
         while(unVisited.size() != 0){
-            Node node = getLowestDistanceNode();
+            Node node = getLowestDistanceNode(unVisited);
             unVisited.remove(node);
 
             for (Map.Entry<Node, Integer> adjacencyPair : node.getAdjacentNodes().entrySet()) {
@@ -30,7 +30,7 @@ public class Dijkstra {
         return visited;
     }
 
-    private Node getLowestDistanceNode(){
+    private Node getLowestDistanceNode(Set<Node> unVisited){
         Node result = null;
         Integer dist = Integer.MAX_VALUE;
 
@@ -41,10 +41,6 @@ public class Dijkstra {
             }
         }
         return result;
-    }
-
-    public void init(Set<Node> unVisited){
-        this.unVisited.addAll(unVisited);
     }
 
 }

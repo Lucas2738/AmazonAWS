@@ -13,9 +13,8 @@ public class BellmanFordTest {
     @Test
     public void test() throws Exception {
         BellmanFord bellmanFord = new BellmanFord();
-        bellmanFord.init(buildGraph());
-        Set<Node> shortestPath = bellmanFord.execute();
-        assertTrue(true);
+        Set<Node> shortestPath = bellmanFord.execute(buildGraph());
+        assertTrue(shortestPath.stream().filter(n -> n.getName().equals("I")).findFirst().get().getDistance() == 28);
     }
 
     public Set<Node> buildGraph(){
