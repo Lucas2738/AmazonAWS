@@ -1,7 +1,10 @@
 package alogorithm.traversal.model;
 
+import lombok.Data;
+
 import java.util.LinkedList;
 
+@Data
 public class Node {
 
     private String name;
@@ -11,38 +14,6 @@ public class Node {
 
     public Node(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Node getParent() {
-        return parent;
-    }
-
-    public void setParent(Node parent) {
-        this.parent = parent;
-    }
-
-    public LinkedList<Node> getChilds() {
-        return childs;
-    }
-
-    public void setChilds(LinkedList<Node> childs) {
-        this.childs = childs;
-    }
-
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
     }
 
     public void addChild(Node node){

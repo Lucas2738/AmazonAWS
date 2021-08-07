@@ -12,20 +12,19 @@ public class BellmanFord {
 
     private final Set<Node> nodes = new HashSet<>();
     private final Set<Edge> edges = new HashSet<>();
-    private final HashMap<Edge, Node> edgesStartingNode = new HashMap<>();
 
 
     public Set<Node> execute() throws Exception {
 
         for(int i = 0; i < nodes.size() - 1; i++){
             for(Edge e : edges){
-                if(edgesStartingNode.get(e).getDistance() != Integer.MAX_VALUE && edgesStartingNode.get(e).getDistance() + e.getWeight() < e.getB().getDistance()){
-                    e.getB().setDistance(edgesStartingNode.get(e).getDistance() + e.getWeight());
+                if(e.getA().getDistance() != Integer.MAX_VALUE && e.getA().getDistance() + e.getWeight() < e.getB().getDistance()){
+                    e.getB().setDistance(e.getA().getDistance() + e.getWeight());
                 }
             }
         }
         for(Edge e : edges){
-            if(edgesStartingNode.get(e).getDistance() != Integer.MAX_VALUE && edgesStartingNode.get(e).getDistance() + e.getWeight() < e.getB().getDistance()){
+            if(e.getA().getDistance() != Integer.MAX_VALUE && e.getA().getDistance() + e.getWeight() < e.getB().getDistance()){
                 throw new Exception("Negative cycle!");
             }
         }
@@ -43,7 +42,6 @@ public class BellmanFord {
                         .weight(s)
                         .build();
                 edges.add(edge);
-                edgesStartingNode.put(edge, n);
             });
         });
         this.nodes.addAll(nodes);
