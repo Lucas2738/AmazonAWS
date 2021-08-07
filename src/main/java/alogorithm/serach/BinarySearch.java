@@ -1,7 +1,9 @@
-package alogorithm;
+package alogorithm.serach;
 
 import java.util.List;
-
+/**
+ *  O(log|N|)
+ * */
 public class BinarySearch {
 
     public static Integer execute(Integer num, List<Integer> nums){
