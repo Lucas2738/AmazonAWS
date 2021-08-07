@@ -4,13 +4,12 @@ import lombok.Data;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 @Data
 public class Node {
     private String name;
-    private LinkedList<Node> shortestPath =  new LinkedList<>();
+    private Node parent;
     private int distance = Integer.MAX_VALUE/2;
     private Map<Node, Integer> adjacentNodes =  new HashMap<>();
 
@@ -25,9 +24,6 @@ public class Node {
 
     @Override
     public String toString(){
-        StringBuilder path = new StringBuilder();
-        shortestPath.forEach(s -> path.append(s.getName() + " -> "));
-        path.append(name);
-        return MessageFormat.format("datastructure.Node: {0}, shortestPath: {1}, distance: {2}", name, path , distance);
+        return MessageFormat.format("{0}, Parent: {1}", name, parent);
     }
 }

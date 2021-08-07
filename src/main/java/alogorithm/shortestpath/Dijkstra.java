@@ -20,9 +20,7 @@ public class Dijkstra {
 
             for (Map.Entry<Node, Integer> adjacencyPair : node.getAdjacentNodes().entrySet()) {
                 if((node.getDistance() + adjacencyPair.getValue() < adjacencyPair.getKey().getDistance())){
-                    LinkedList<Node> shortestPath = new LinkedList<>(node.getShortestPath());
-                    shortestPath.add(node);
-                    adjacencyPair.getKey().setShortestPath(shortestPath);
+                    adjacencyPair.getKey().setParent(node);
                     adjacencyPair.getKey().setDistance(node.getDistance() + adjacencyPair.getValue());
                 }
             }
