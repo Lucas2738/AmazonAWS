@@ -3,6 +3,11 @@ package alogorithm.sorting;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Best Case: O(nlog(n))
+    Worst Case: O(nlog(n))
+    Average Case: O(nlog(n))
+*/
 public class MergeSort {
     List<Integer> numbers;
 

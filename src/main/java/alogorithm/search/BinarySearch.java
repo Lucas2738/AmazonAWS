@@ -1,4 +1,4 @@
-package alogorithm.serach;
+package alogorithm.search;
 
 import java.util.List;
 /**

@@ -3,6 +3,11 @@ package alogorithm.sorting;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Best Case: O(nlog(n))
+    Worst Case: O(n^2)
+    Average Case: O(nlog(n))
+*/
 public class QuickSort {
     List<Integer> numbers;
 

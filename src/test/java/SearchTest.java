@@ -1,4 +1,4 @@
-import alogorithm.serach.BinarySearch;
+import alogorithm.search.BinarySearch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
