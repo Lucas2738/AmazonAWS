@@ -5,6 +5,9 @@ import datastructure.Node;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Time Complexity: O(|V| + |E|)
+ * */
 public class BreadthFirstSearch {
 
     public static Queue execute(Node root){
