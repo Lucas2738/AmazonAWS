@@ -10,11 +10,10 @@ public class BucketSort {
     List<Integer> result = new ArrayList<>();
 
     public List<Integer> execute(){
-        step(numbers);
-        return result;
+        return step(numbers);
     }
 
-    private void step(List<Integer> nums){
+    private List<Integer> step(List<Integer> nums){
         List<Entry<Integer, List<Integer>>> buckets;
 
         int bucketNums = BUCKET_NUM;
@@ -22,7 +21,7 @@ public class BucketSort {
             buckets = buildBucket(nums, BUCKET_NUM);
         }else if(nums.size() == 1){
             result.add(nums.get(0));
-            return;
+            return result;
         }else{
             buckets = buildBucket(nums, nums.size()/2);
         }
@@ -49,7 +48,7 @@ public class BucketSort {
             step(b.getValue());
         }
 
-        return;
+        return result;
     }
 
     private List<Entry<Integer, List<Integer>>> buildBucket(List<Integer> nums, int bucketNums){
