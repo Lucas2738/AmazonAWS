@@ -2,6 +2,7 @@ package alogorithm.sorting;
 
 import java.util.*;
 import static java.util.Map.*;
+import static java.util.AbstractMap.*;
 
 public class BucketSort {
     private static final int BUCKET_NUM = 10;
@@ -67,10 +68,10 @@ public class BucketSort {
                     min = num;
                 }
             }
-            for (int i = 0; i <= bucketNums; i++) {
-                Map.Entry<Integer, List<Integer>> es = new AbstractMap.SimpleEntry<>(min + (max - min) / bucketNums * i, new ArrayList<>());
-                buckets.add(es);
+            for (int i = 0; i < bucketNums; i++) {
+                buckets.add(new SimpleEntry<>(min + (max - min) / bucketNums * i, new ArrayList<>()));
             }
+            buckets.add(new SimpleEntry<>(max, new ArrayList<>()));
         }
         return buckets;
     }
