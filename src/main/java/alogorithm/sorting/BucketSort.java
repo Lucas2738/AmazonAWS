@@ -7,13 +7,14 @@ import static java.util.AbstractMap.*;
 public class BucketSort {
     private static final int BUCKET_NUM = 60;
     List<Integer> numbers;
-    List<Integer> result = new ArrayList<>();
 
     public List<Integer> execute(){
         return step(numbers);
     }
 
     private List<Integer> step(List<Integer> nums){
+        List<Integer> result = new ArrayList<>();
+
         List<Entry<Integer, List<Integer>>> buckets;
         int max = Integer.MIN_VALUE;
         for (Integer n : nums) {
@@ -48,7 +49,7 @@ public class BucketSort {
         }
 
         for(int i = 0; i < buckets.size(); i++){
-            step(buckets.get(i).getValue());
+            result.addAll(step(buckets.get(i).getValue()));
         }
 
         return result;
