@@ -43,7 +43,7 @@ public class BucketSort {
             }
         }
 
-        for(int i = 0; i<buckets.size(); i++){
+        for(int i = 0; i < buckets.size(); i++){
             Entry<Integer, List<Integer>> b = buckets.get(i);
             step(b.getValue());
         }
