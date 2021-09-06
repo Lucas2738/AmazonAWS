@@ -4,6 +4,11 @@ import java.util.*;
 import static java.util.Map.*;
 import static java.util.AbstractMap.*;
 
+/**
+    Best Case: Ω(n + k)
+    Worst Case: O(n^2)
+    Average Case:Θ(n + k)
+ */
 public class BucketSort {
     private static final int BUCKET_NUM = 60;
     List<Integer> numbers;
