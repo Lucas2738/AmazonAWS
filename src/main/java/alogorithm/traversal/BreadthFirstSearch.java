@@ -13,11 +13,11 @@ public class BreadthFirstSearch {
     public static Queue execute(Node root){
         Queue result = new LinkedList();
 
-        Queue queue = new LinkedList();
+        Queue<Node> queue = new LinkedList();
         queue.add(root);
 
         while(queue.size() > 0){
-            Node node = (Node) queue.poll();
+            Node node = queue.poll();
             result.add(node);
             node.getAdjacentNodes().forEach((k, v) -> {
                 queue.add(k);
